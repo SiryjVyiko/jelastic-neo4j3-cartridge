@@ -5,6 +5,7 @@
 SED=$(which sed);
 
 function _setPassword() {
+	return 0
 	sed -i '/password_change_required/d' /opt/repo/versions/${Version}/neo4j-${Version}/data/dbms/auth;
 	generateAuthString $J_OPENSHIFT_APP_ADM_USER $J_OPENSHIFT_APP_ADM_PASSWORD;
     	service cartridge restart;
